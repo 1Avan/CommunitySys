@@ -1,0 +1,43 @@
+//定义全局颜色#ccc
+@hui:#ccc;
+//左侧菜单宽度
+@base-menu-width:260px;
+//左侧菜单颜色
+@base-menu-color:rgba(0, 255, 187, 0.928);
+
+//顶部导航高度
+@base-nav-top:50px;
+@base-nav-color:skyblue;
+
+//logo的高度
+@base-logo-height:50px;
+//收缩菜单后的宽度
+@base-menu-min-width:50px;
+
+//容器的宽度
+@container:1200px;
+
+//容器的宽度1200px
+.container {
+    width: @container;
+    margin: 0 auto;
+}
+
+//浮动
+.fr {
+    float: right;
+}
+.fl {
+    float: left;
+}
+
+//clearfix清除浮动
+.clearfix::after {
+    clear: both;
+    display: table;
+    content: " ";
+  }
+.clearfix::before {
+    display: table;
+    content: " ";
+  }

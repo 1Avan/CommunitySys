@@ -1,0 +1,24 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/community_management
+    driver-class-name: com.mysql.cj.jdbc.Driver
+cms:
+  jwt:
+    #    下面是微信小程序登录的jwt
+    # 设置jwt签名加密时使用的秘钥
+    user-secret-key: ivan1111111111111111111111111111111111111111111
+    # 设置jwt过期时间
+    user-ttl: 43200000
+    # 设置前端传递过来的令牌名称
+    user-token-name: token
+mybatis:
+  #mapper配置文件
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.ivan.communitymanagementsys.entity
+  configuration:
+    #开启驼峰命名
+    map-underscore-to-camel-case: true

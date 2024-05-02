@@ -1,0 +1,38 @@
+<!-- ActivityMapper.xml -->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ivan.communitymanagementsys.mapper.CommunityMapper">
+    <update id="updateCommunity">
+        update community
+        <set>
+            <if test="description!=null and description!=''">
+                description = #{description},
+            </if>
+            <if test="communityName!=null and communityName!=''">
+                community_name = #{communityName},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+    <select id="pageQuery" resultType="com.ivan.communitymanagementsys.entity.Community">
+        select * from community
+        <where>
+            <if test="communityName!=null and communityName!=''">
+                and community_name like concat('%',#{communityName},'%')
+            </if>
+            <if test="description!=null and description!=''">
+                and description like concat('%',#{description},'%')
+            </if>
+        </where>
+    </select>
+    <select id="searchByName" resultType="com.ivan.communitymanagementsys.entity.Community">
+        select * from community
+        <where>
+            <if test="name!=null and name!=''">
+                and name like concat('%',#{name},'%')
+            </if>
+        </where>
+    </select>
+</mapper>
